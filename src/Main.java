@@ -1,12 +1,16 @@
 public class Main {
     public static void main(String[] args) {
 
-        int firstNumber = InputLogic.getNumber();
+        double firstNumber = InputLogic.getNumber();
 
         char operation = InputLogic.getOperation();
 
-        int secondNumber = InputLogic.getNumber();
+        double secondNumber = InputLogic.getNumber();
 
-        System.out.println(OperationsLogic.calcResult(firstNumber, secondNumber, operation));
+        try {
+            System.out.println(OperationsLogic.calcResult(firstNumber, secondNumber, operation));
+        } catch (IllegalArgumentException | ArithmeticException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

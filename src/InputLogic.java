@@ -1,18 +1,21 @@
 import java.util.Scanner;
 
 public class InputLogic {
+
     static Scanner scanner = new Scanner(System.in);
 
-    public static int getNumber() {
+    public static double getNumber() {
         System.out.println("Input number.");
-        int number;
-        if (scanner.hasNextInt()) {
-            number = scanner.nextInt();
+        double number;
+
+        if (scanner.hasNextDouble()) {
+            number = scanner.nextDouble();
         } else {
             System.out.println("Only numbers allowed.");
             scanner.next();
             number = getNumber();
         }
+
         return number;
     }
 

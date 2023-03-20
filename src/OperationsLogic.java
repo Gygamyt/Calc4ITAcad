@@ -1,32 +1,36 @@
 public class OperationsLogic {
-    public static int addition(int firstNumber, int secondNumber) {
+    public static double performAddition(double firstNumber, double secondNumber) {
         return firstNumber + secondNumber;
     }
 
-    public static int subtraction(int firstNumber, int secondNumber) {
+    public static double performSubtraction(double firstNumber, double secondNumber) {
         return firstNumber - secondNumber;
     }
 
-    public static int multiplication(int firstNumber, int secondNumber) {
+    public static double performMultiplication(double firstNumber, double secondNumber) {
         return firstNumber * secondNumber;
     }
 
-    public static int division(int firstNumber, int secondNumber) {
+    public static double performDivision(double firstNumber, double secondNumber) {
         return firstNumber / secondNumber;
     }
 
-    public static int calcResult(int firstNumber, int secondNumber, char operation) {
-        int result;
+    public static double calcResult(double firstNumber, double secondNumber, char operation) {
+        double result;
+
         switch (operation) {
-            case '+' -> result = addition(firstNumber, secondNumber);
-            case '-' -> result = subtraction(firstNumber, secondNumber);
-            case '/' -> result = division(firstNumber, secondNumber);
-            case '*' -> result = multiplication(firstNumber, secondNumber);
-            default -> {
-                result = 0;
-                System.out.println("Something went wrong.");
+            case '+' -> result = performAddition(firstNumber, secondNumber);
+            case '-' -> result = performSubtraction(firstNumber, secondNumber);
+            case '/' -> {
+                if (secondNumber == 0) {
+                    throw new ArithmeticException("Can't divide by zero.");
+                } else result = performDivision(firstNumber, secondNumber);
             }
+            case '*' -> result = performMultiplication(firstNumber, secondNumber);
+            default -> throw new IllegalArgumentException("Something went wrong.");
         }
-        return result;
+        if (result == Double.NEGATIVE_INFINITY || result == Double.POSITIVE_INFINITY) {
+            throw new ArithmeticException("Too long result value.");
+        } else return result;
     }
 }
