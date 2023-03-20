@@ -15,6 +15,10 @@ public class OperationsLogic {
         return firstNumber / secondNumber;
     }
 
+    public static boolean isDoubleValueInfinity(double result) {
+        return result == Double.NEGATIVE_INFINITY || result == Double.POSITIVE_INFINITY;
+    }
+
     public static double calcResult(double firstNumber, double secondNumber, char operation) {
         double result;
 
@@ -29,7 +33,7 @@ public class OperationsLogic {
             case '*' -> result = performMultiplication(firstNumber, secondNumber);
             default -> throw new IllegalArgumentException("Something went wrong.");
         }
-        if (result == Double.NEGATIVE_INFINITY || result == Double.POSITIVE_INFINITY) {
+        if (isDoubleValueInfinity(result)) {
             throw new ArithmeticException("Too long result value.");
         } else return result;
     }
