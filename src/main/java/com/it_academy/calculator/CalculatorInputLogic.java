@@ -1,6 +1,9 @@
+package com.it_academy.calculator;
+
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class InputLogic {
+public class CalculatorInputLogic {
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -15,7 +18,6 @@ public class InputLogic {
             scanner.next();
             number = getNumber();
         }
-
         return number;
     }
 

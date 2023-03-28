@@ -1,4 +1,6 @@
-public class OperationsLogic {
+package com.it_academy.calculator;
+
+public class CalculatorOperationsLogic {
     public static double performAddition(double firstNumber, double secondNumber) {
         return firstNumber + secondNumber;
     }
@@ -12,6 +14,9 @@ public class OperationsLogic {
     }
 
     public static double performDivision(double firstNumber, double secondNumber) {
+        if (secondNumber == 0) {
+            throw new ArithmeticException("Can't divide by zero.");
+        }
         return firstNumber / secondNumber;
     }
 
@@ -25,11 +30,7 @@ public class OperationsLogic {
         switch (operation) {
             case '+' -> result = performAddition(firstNumber, secondNumber);
             case '-' -> result = performSubtraction(firstNumber, secondNumber);
-            case '/' -> {
-                if (secondNumber == 0) {
-                    throw new ArithmeticException("Can't divide by zero.");
-                } else result = performDivision(firstNumber, secondNumber);
-            }
+            case '/' -> result = performDivision(firstNumber, secondNumber);
             case '*' -> result = performMultiplication(firstNumber, secondNumber);
             default -> throw new IllegalArgumentException("Something went wrong.");
         }
