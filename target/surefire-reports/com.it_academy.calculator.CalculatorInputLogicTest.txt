@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.it_academy.calculator.CalculatorInputLogicTest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.001 s - in com.it_academy.calculator.CalculatorInputLogicTest
