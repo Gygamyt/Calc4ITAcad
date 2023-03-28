@@ -46,7 +46,7 @@ public class CalculatorBasicOperationsLogicTest {
     static Stream<Arguments> paramsForCalcResultTest() {
         return Stream.of(
                 Arguments.of(2323, -2323, -1, '*'),
-                Arguments.of(312, 132, 180, '+'),
+                Arguments.of(312.5, 132.5, 180, '+'),
                 Arguments.of(4, 656, 164, '/'),
                 Arguments.of(200, 3465, 3265, '-')
         );
